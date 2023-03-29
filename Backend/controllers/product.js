@@ -1,5 +1,5 @@
 const express = require("express");
-const ProductDetails = require("../model/product.model");
+const {ProductDetails} = require("../models/product.model");
 const Category = require("../model/category.model");
 
 const router = express.Router();
@@ -46,4 +46,6 @@ router.delete("/:id", async (req, res) => {
   res.status(200).send(data);
 });
 
-module.exports = router;
+module.exports = {
+    router
+};
