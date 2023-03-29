@@ -1,7 +1,7 @@
 const express=require("express")
 const cors=require("cors")
 const {connection}=require('./db')
-const {ProductController}=require('./controllers/product')
+const {productRouter}=require('./controllers/product')
 const app=express()
 
 
@@ -11,7 +11,7 @@ app.use(cors())
 // app.get("/",(req,res)=>{
 //     res.send("Hme Page")
 // })
-app.use("/products", ProductController);
+app.use("/products", productRouter);
 
 app.listen(7860,async ()=>{
     try{
