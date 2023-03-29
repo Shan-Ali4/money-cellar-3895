@@ -1,35 +1,37 @@
 const express = require("express");
-const ProductDetails = require("../model/product.model");
-const Category = require("../model/category.model");
+const { productModel } = require("../models/product.model");
 
-const router = express.Router();
+const productRouter = express.Router();
 
-router.get("/", async (req, res) => {
-  const data = await ProductDetails.find()
+productRouter.get("/", async (req, res) => {
+  const data = await productModel.find()
     .populate({ path: "category_id" })
     .lean()
     .exec();
   res.status(200).send(data);
 });
 
-router.post("/", async (req, res) => {
-  let request = req.body;
-  const data = await ProductDetails.create(request);
-
-  res.status(201).send(data);
+productRouter.post("/", async (req, res) => {
+  try {
+    let request = req.body;
+    const data = await productModel.create(request);
+    res.status(201).send({message:"Data Added Succesfully"});
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error adding product.");
+  }
 });
 
-
-router.get("/:id", async (req, res) => {
+productRouter.get("/:id", async (req, res) => {
   let { id } = req.params;
-  const data = await ProductDetails.find({ _id: id }).lean().exec();
+  const data = await productModel.find({ _id: id }).lean().exec();
   res.status(200).send(data);
 });
 
-router.patch("/:id", async (req, res) => {
+productRouter.patch("/:id", async (req, res) => {
   let { id } = req.params;
 
-  const data = await ProductDetails.findByIdAndUpdate(id, req.body, {
+  const data = await productModel.findByIdAndUpdate(id, req.body, {
     new: true,
   })
     .lean()
@@ -38,12 +40,14 @@ router.patch("/:id", async (req, res) => {
   res.status(200).send(data);
 });
 
-router.delete("/:id", async (req, res) => {
+productRouter.delete("/:id", async (req, res) => {
   let { id } = req.params;
 
-  const data = await ProductDetails.findByIdAndDelete(id).lean().exec();
+  const data = await productModel.findByIdAndDelete(id).lean().exec();
 
   res.status(200).send(data);
 });
 
-module.exports = router;
+module.exports = {
+  productRouter,
+};

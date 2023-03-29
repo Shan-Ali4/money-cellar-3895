@@ -15,8 +15,10 @@ const productSchema= mongoose.Schema({
     offer:Number,
     about:String,
     category_id:{type:mongoose.Schema.Types.ObjectId,ref:"category",require:true}
+},{
+    versionKey: false
 })
 
-const Product = mongoose.model("product",productSchema)
+const productModel = mongoose.model("product",productSchema)
 
-module.exports=Product
+module.exports={productModel}
