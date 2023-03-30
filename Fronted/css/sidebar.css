@@ -1,0 +1,143 @@
+/* general Slidebar */
+
+.slidebar-background{
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+
+}
+.slidebar-background>div{
+    display: none;
+    margin-left: auto;
+    width: 420px;
+    background-color: white;
+    padding: 50px 40px;
+    box-sizing: border-box;
+}
+
+/* pincode sloder */
+
+.pincode-slidebar h1{
+    font-size: 26px;
+    margin: 20px 0;
+}
+.pincode-slidebar form{
+    display: flex;
+    border-radius: 7px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px var(--main-color) solid;
+}
+.pincode-slidebar form input{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.pincode-slidebar form input[type="number"]{
+    width: 100%;
+}
+.pincode-slidebar form input[type="submit"]{
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.pincode-slidebar > div{
+    display: flex;
+    align-items: center;
+    border: 1px lightgray solid;
+    border-radius: 10px 15px;
+    margin-top: 15px;
+}
+.pincode-slidebar > div img{
+    height: 40px;
+    margin-right: 15px;
+}
+.pincode-slidebar>div h3{
+    color: var(--main-color);
+}
+.pincode-slidebar>div a{
+    margin-left: 10px;
+    color: rgb(0.162,255);
+    text-decoration: none;
+}
+.pincode-slidebar>div:nth-child(5){
+    background-color: rgb(240,240,240);
+    border: none;
+}
+.pincode-slidebar>div:nth-child(6) img{
+    height: 30px;
+}
+.close{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* login slider */
+
+#login-sliderbar{
+    padding: 0;
+}
+.login-sliderbar > div{
+    display: flex;
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    align-items: center;
+    background-color: teal;
+}
+.login-sliderbar>div img{
+    height: 50px;
+    margin-left: 30px;
+}
+.login-sliderbar>div img:last-child{
+    height: 90%;
+    margin-top: 60px;
+}
+.login-sliderbar i {
+    font-size: 25px;
+    color: var(--main-color);
+    margin: 20px 30px;
+    cursor: pointer;
+}
+.login-sliderbar>form{
+    padding: 30px;
+
+}
+.login-sliderbar>form>div{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+}
+.login-sliderbar>form label{
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.login-sliderbar>form input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.login-sliderbar>form input[type="submit"]{
+    display: block;
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: teal;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+.login-sliderbar>p{
+    padding: 0 30px;
+    font-size: 14px;
+}
